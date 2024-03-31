@@ -9,8 +9,8 @@ void main() {
         colorScheme: const ColorScheme(
           primary: Colors.white, //elements inside containers
           secondary: Color.fromARGB(255, 105, 85, 177), // text color.
-          surface: Color.fromARGB(255, 130, 113,
-              184), // appbar background color, text color  applied to text on surfaces like cards or panels.
+          surface: Color.fromARGB(255, 130, 113, 184),
+          // appbar background color, text color  applied to text on surfaces like cards or panels.
           background: Color.fromARGB(
               255, 255, 255, 255), //color represents the overall background
           error: Colors.grey, //errors or warnings
