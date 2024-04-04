@@ -66,16 +66,26 @@ android {
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+       
     }
     
-    signingConfigs {
-        release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-            storePassword keystoreProperties['storePassword']
+    // signingConfigs {
+    //     release {
+    //         keyAlias keystoreProperties['keyAlias']
+    //         keyPassword keystoreProperties['keyPassword']
+    //         storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+    //         storePassword keystoreProperties['storePassword']
+    //     }
+    // }
+        signingConfigs {
+             release {
+                keyAlias 'upload'
+                keyPassword 'Bismillah@1'
+                storeFile file('C:/Users/pakih/projects/university_app_latest/android/app/upload-keystore.jks')
+                storePassword 'Bismillah@1'
+            }
         }
-    }
+
 
 
 
