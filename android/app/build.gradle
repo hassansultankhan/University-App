@@ -24,12 +24,14 @@ if (flutterVersionName == null) {
 
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
+// def keystorePropertiesFile = rootProject.file('..\\key.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
 android {
-    namespace "com.example.university_app_latest"
+    // namespace "com.example.university_app_latest"
+    namespace "com.luxonstudios.university_tracer"
     compileSdk flutter.compileSdkVersion
     // ndkVersion flutter.ndkVersion
     ndkVersion "25.2.9519653"
@@ -61,7 +63,8 @@ android {
 
 
     defaultConfig {
-        applicationId "com.example.university_app_latest"
+        // applicationId "com.example.university_app_latest"
+        applicationId "com.luxonstudios.university_tracer"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
@@ -77,25 +80,39 @@ android {
     //         storePassword keystoreProperties['storePassword']
     //     }
     // }
-        signingConfigs {
-             release {
-                keyAlias 'upload'
-                keyPassword 'Bismillah@1'
-                storeFile file('C:/Users/pakih/projects/university_app_latest/android/app/upload-keystore.jks')
-                storePassword 'Bismillah@1'
-            }
-        }
+    //     // signingConfigs {
+    //     //      release {
+    //     //         keyAlias 'upload'
+    //     //         keyPassword 'Bismillah@1'
+    //     //         storeFile file('C:/Users/pakih/projects/university_app_latest/android/app/upload-keystore.jks')
+    //     //         storePassword 'Bismillah@1'
+    //     //     }
+    //     // }
 
 
 
 
-    buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
-        }
-    }
+    // buildTypes {
+    //     release {
+    //         // TODO: Add your own signing config for the release build.
+    //         // Signing with the debug keys for now, so `flutter run --release` works.
+    //         signingConfig signingConfigs.debug
+    //     }
+    // }
+       signingConfigs {
+       release {
+           keyAlias keystoreProperties['keyAlias']
+           keyPassword keystoreProperties['keyPassword']
+        //    storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           storeFile file('upload-keystore.jks')
+           storePassword keystoreProperties['storePassword']
+       }
+   }
+   buildTypes {
+       release {
+           signingConfig signingConfigs.release
+       }
+   }
 }
 
 flutter {

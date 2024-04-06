@@ -1,5 +1,4 @@
-package com.example.university_app_latest
-
+package com.luxonstudios.university_tracer
 import io.flutter.embedding.android.FlutterActivity
 
 class MainActivity: FlutterActivity()
